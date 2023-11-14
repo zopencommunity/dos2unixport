@@ -21,11 +21,14 @@ zopen_check_results()
   pfx="$2"
   chk="$1/$2_check.log"
 
+  failures=$(grep -cE "^not ok" $chk)
+  total=$(grep -cE "^not ok|^ok" $chk)
+
   # Echo the following information to gauge build health
-  echo "actualFailures:0"
-  echo "totalTests:1"
-  echo "expectedFailures:0"
-  echo "expectedTotalTests:1"
+  echo "actualFailures:$failures"
+  echo "totalTests:$total"
+  echo "expectedFailures:1"
+  echo "expectedTotalTests:117"
 }
 
 zopen_get_version()
