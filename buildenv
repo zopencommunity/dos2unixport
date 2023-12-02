@@ -1,5 +1,9 @@
-export ZOPEN_STABLE_URL="https://git.code.sf.net/p/dos2unix/dos2unix.git"
-export ZOPEN_STABLE_DEPS="make coreutils git"
+# bump: dos2unix-version /DOS2UNIX_VERSION="(.*)"/ https://sourceforge.net/projects/dos2unix/files/dos2unix/|re:/Click.to.enter.([\d.]+)"/$1/|semver:*
+DOS2UNIX_VERSION="7.5.1"
+
+# export ZOPEN_STABLE_URL="https://git.code.sf.net/p/dos2unix/dos2unix.git"
+export ZOPEN_STABLE_URL="https://sourceforge.net/projects/dos2unix/files/dos2unix/${DOS2UNIX_VERSION}/dos2unix-${DOS2UNIX_VERSION}.tar.gz"
+export ZOPEN_STABLE_DEPS="make coreutils git curl gzip"
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_CATEGORIES="editor development"
 export ZOPEN_CONFIGURE="skip"
@@ -33,7 +37,5 @@ zopen_check_results()
 
 zopen_get_version()
 {
-  # Modify to echo the version of your tool/library
-  # Rather than hardcoding the version, obtain the version by running the tool/library
-  echo "1.0.0"
+  echo "$DOS2UNIX_VERSION"
 }
