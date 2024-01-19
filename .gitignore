@@ -3,4 +3,4 @@ log.DEV/
 log.STABLE/
 build/
 install/
-dos2unix/
+dos2unix*/

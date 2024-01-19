@@ -7,10 +7,14 @@ export ZOPEN_STABLE_DEPS="make coreutils git curl gzip"
 export ZOPEN_BUILD_LINE="STABLE"
 export ZOPEN_CATEGORIES="editor development"
 export ZOPEN_CONFIGURE="skip"
-export ZOPEN_SRC_DIR="dos2unix"
 export ZOPEN_MAKE_OPTS="LIBS_EXTRA=\"\${LIBS}\" ENABLE_NLS="
 export ZOPEN_CHECK="zopen_check"
 export ZOPEN_INSTALL_OPTS="install prefix=\$ZOPEN_INSTALL_DIR LIBS_EXTRA=\"\${LIBS}\" ENABLE_NLS="
+
+zopen_pre_patch()
+{
+  export CFLAGS="$CFLAGS $CPPFLAGS"
+}
 
 zopen_check()
 {
